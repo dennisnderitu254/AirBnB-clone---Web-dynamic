@@ -76,3 +76,53 @@ For this project you will fork this [codebase](https://intranet.alxswe.com/rltok
 **Repo:**
 
 - GitHub repository: `AirBnB_clone_v4`
+
+#### 1. Cash only
+
+Write a script that starts a Flask web application:
+
+- Based on web_flask, copy: web_flask/static, web_flask/templates/100-hbnb.html, web_flask/__init__.py and web_flask/100-hbnb.py into the web_dynamic folder
+- Rename 100-hbnb.py to 0-hbnb.py
+- Rename 100-hbnb.html to 0-hbnb.html
+- Update 0-hbnb.py to replace the existing route to /0-hbnb/
+
+`If 100-hbnb.html is not present, use 8-hbnb.html instead`
+
+```
+guillaume@ubuntu:~/AirBnB_v4$ HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db python3 -m web_dynamic.0-hbnb
+* Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+....
+```
+
+One problem now is the asset caching done by Flask.
+
+To avoid that, you will add a query string to each asset:
+
+In 0-hbnb.py, add a variable cache_id to the render_template. The value of this variable must be an UUID (uuid.uuid4())
+
+In 0-hbnb.html, add this variable cache_id as query string to each <link> tag URL
+
+```
+guillaume@ubuntu:~/AirBnB_v4$ curl -s -XGET http://0.0.0.0:5000/0-hbnb/ | head -6
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../static/styles/4-common.css?e211c9eb-7d17-4f12-85eb-4d50fa50cb1d" />
+    <link rel="stylesheet" type="text/css" href="../static/styles/3-header.css?e211c9eb-7d17-4f12-85eb-4d50fa50cb1d" />
+guillaume@ubuntu:~/AirBnB_v4$ curl -s -XGET http://0.0.0.0:5000/0-hbnb/ | head -6
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../static/styles/4-common.css?f834413e-0aa9-4767-b64a-c92db9cb1f82" />
+    <link rel="stylesheet" type="text/css" href="../static/styles/3-header.css?f834413e-0aa9-4767-b64a-c92db9cb1f82" />
+guillaume@ubuntu:~/AirBnB_v4$
+```
+
+**Repo:**
+
+- GitHub repository: `AirBnB_clone_v4`
+- Directory: `web_dynamic`
+- GitHub repository: `0-hbnb.py, templates/0-hbnb.html`
+
