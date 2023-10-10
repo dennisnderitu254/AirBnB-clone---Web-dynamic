@@ -155,3 +155,9 @@ As example:
 ![Alt Text](web1.jpg)
 ![Alt Text](web2.jpg)
 ![Alt Text](web3.jpg)
+
+**Repo:**
+
+- GitHub repository: `AirBnB_clone_v4`
+- Directory: `web_dynamic`
+- GitHub repository: `1-hbnb.py, templates/1-hbnb.html, static/scripts/1-hbnb.js`
