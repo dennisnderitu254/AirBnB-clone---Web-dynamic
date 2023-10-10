@@ -223,6 +223,7 @@ Write a JavaScript script (static/scripts/3-hbnb.js):
     - Description of this endpoint here. If this endpoint is not available, you will have to add it to the API (you can work all together for creating this endpoint)
     - Send a POST request with Content-Type: application/json and an empty dictionary in the body - cURL version: curl "http://0.0.0.0:5001/api/v1/places_search" -XPOST -H "Content-Type: application/json" -d '{}'
     - Loop into the result of the request and create an article tag representing a Place in the section.places. (you can remove the Owner tag in the place description)
+
 The final result must be the same as previously, but now, places are loaded from the front-end, not from the back-end!
 
 - GitHub repository: `AirBnB_clone_v4`
